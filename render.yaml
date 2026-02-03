@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: genie-pratique-backend
+    env: node
+    region: frankfurt
+    plan: free
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        value: postgresql://postgres.gvoqykksbjmsccezucml:Flora@(2006)@aws-0-eu-central-1.pooler.supabase.com:6543/postgres
